@@ -6,7 +6,7 @@ class ExpenseService {
   }
 
   addExpense(description, amount) {
-    const id = Date.now(); // Generación de un ID único
+    const id = Date.now();
     const expense = new Expense(id, description, amount);
     this.expenses.push(expense);
     this.updateLocalStorage();

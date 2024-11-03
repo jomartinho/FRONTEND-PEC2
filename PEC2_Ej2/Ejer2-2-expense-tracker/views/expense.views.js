@@ -4,7 +4,6 @@ class ExpenseView {
     this.balance = document.getElementById("balance"); // Balance total
   }
 
-  // Método para mostrar un gasto en la lista
   addExpenseToDOM(expense) {
     const listItem = document.createElement("li");
     listItem.innerHTML = `${expense.description} - ${expense.amount} 
@@ -12,23 +11,19 @@ class ExpenseView {
     this.expenseList.appendChild(listItem);
   }
 
-  // Método para limpiar la lista de gastos en el DOM
   clearExpenses() {
     this.expenseList.innerHTML = "";
   }
 
-  // Método para mostrar todos los gastos en el DOM
   displayExpenses(expenses) {
     this.clearExpenses();
     expenses.forEach((expense) => this.addExpenseToDOM(expense));
   }
 
-  // Método para actualizar el balance total
   updateBalance(total) {
     this.balance.innerText = `Balance: ${total}`;
   }
 
-  // Método para enlazar el evento de agregar gasto
   bindAddExpense(handler) {
     document
       .getElementById("expense-form")
@@ -40,7 +35,6 @@ class ExpenseView {
       });
   }
 
-  // Método para enlazar el evento de eliminar gasto
   bindDeleteExpense(handler) {
     this.expenseList.addEventListener("click", (event) => {
       if (event.target.classList.contains("delete-btn")) {
