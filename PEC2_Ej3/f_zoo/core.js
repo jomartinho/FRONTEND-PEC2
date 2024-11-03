@@ -113,18 +113,15 @@ function managersForEmployee(idOrName) {
       emp.lastName === idOrName
   );
 
-  // If no employee is found, return an empty object
   if (!employee) return {};
 
-  // Find the names of the employee's managers
   const managerNames = employee.managers
     .map((managerId) => {
       const manager = data.employees.find((emp) => emp.id === managerId);
       return manager ? `${manager.firstName} ${manager.lastName}` : null;
     })
-    .filter(Boolean); // Filter out any null values in case of missing managers
+    .filter(Boolean);
 
-  // Return the employee object with the expected structure
   return {
     id: employee.id,
     firstName: employee.firstName,
